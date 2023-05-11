@@ -1,0 +1,3 @@
+E:
+cd Учеба\ДИПf_ingЛОМ\ПРОГА\13.04 upload files on hash
+node app.js

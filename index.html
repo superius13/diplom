@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src=" https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+  <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+  <form method="post" enctype="multipart/form-data">
+
+  <label class="input-file">
+
+      <span class="input-file-text" type="text"></span>
+
+      <input type="file" name="file" id="fileInput">        
+
+      <span class="input-file-btn">Выберите файл</span>
+
+  </label>
+
+  <script>
+    $('.input-file input[type=file]').on('change', function(){
+    let file = this.files[0];
+    $(this).closest('.input-file').find('.input-file-text').html(file.name);
+});
+  </script>
+
+</form>
+
+  <button id="uploadButton">upload</button>
+
+
+  <h1 id="url"></h1>
+  <script>
+   
+    document.getElementById("uploadButton").onclick = () => {
+      let fileElement = document.getElementById('fileInput')
+
+      // check if user had selected a file
+      if (fileElement.files.length === 0) {
+        alert('please choose a file')
+        return
+      }
+
+      let file = fileElement.files[0]
+
+      let formData = new FormData();
+      formData.set('file', file);
+
+
+      axios.post("http://localhost:3000/upload-single-file", formData, {
+        onUploadProgress: progressEvent => {
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+        }
+      })
+        .then(res => {
+          document.getElementById("url").innerHTML = res.data;
+        })
+    }
+
+  </script>
+</body>
+
+</html>
