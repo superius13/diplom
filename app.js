@@ -25,10 +25,16 @@ router.get("/", async (ctx) => {
   ctx.body = "Hello friends!";
 });
 
+
 router.post("/upload-single-file", upload.single("file"), (ctx) => {
   console.log("ctx.request.file", ctx.request.file);
+
   let file = ctx.request.file;
-  let filetext = file.buffer.toString();
+  let buff = new Buffer(file.buffer);
+  let filetext = buff.toString('utf8');
+  console.log('"' + buff + '" converted to Base64 is "' + filetext + '"');
+
+
   const encrypted = key.encrypt(filetext, 'base64');
 
   let filename = `${new Date().getTime()}`;
