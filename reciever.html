@@ -2,25 +2,23 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="reciever.css" type="text/css"/>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src=" https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
 </head>
-
 <body>
-  <input type="text" id="urlInput">
-  <button id="downloadButton">download</button>
-
+  <div>
+    <input type="text" id="form" placeholder="Введите название файла">
+    <button type="submit" id="button">Скачать файл</button>
+  </div>
   <script>
-
-    document.getElementById("downloadButton").onclick = () => {
-      let inputElement = document.getElementById('urlInput').value
+    document.getElementById("button").onclick = () => {
+      let inputElement = document.getElementById('form').value
       let downloadUrl = 'http://localhost:3000/getfile/' + inputElement
       document.location = downloadUrl;
       }
   </script>
 </body>
-
 </html>

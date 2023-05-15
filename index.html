@@ -30,16 +30,27 @@
     $('.input-file input[type=file]').on('change', function(){
     let file = this.files[0];
     $(this).closest('.input-file').find('.input-file-text').html(file.name);
-});
-  </script>
+    });
+
+    function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+    }
+
+    </script>
 
 </form>
 
-  <button id="uploadButton">upload</button>
-
+  <button class="button-24" role="button" id="uploadButton">загрузить</button>
 
   <h1 id="url"></h1>
+
+  <button class="copyButton" onclick="copyToClipboard('#url')">скопировать текст</button>
   <script>
+
    
     document.getElementById("uploadButton").onclick = () => {
       let fileElement = document.getElementById('fileInput')

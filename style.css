@@ -7,6 +7,8 @@ body {
     max-width: 768px;
     /*background: radial-gradient(circle, skyblue, steelblue);*/
     color: black;
+    flex-direction: column;
+    gap: 15px;
 }
 
 
@@ -72,3 +74,80 @@ position: relative;
 .input-file input[type=file]:disabled + .input-file-btn {
     background-color: #eee;
 }
+
+.button-24 {
+  background: #386fc2;
+  border: 1px solid #386fc2;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #386fc2;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
+.copyButton {
+    background: #386fc2;
+  border: 1px solid #386fc2;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.copyButton:hover,
+.copyButton:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #386fc2;
+}
+
+.copyButton:active {
+  opacity: .5;
+}
+
+#urlInput {
+
+}
+
